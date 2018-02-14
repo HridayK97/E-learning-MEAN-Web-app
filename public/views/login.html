@@ -1,9 +1,9 @@
-<section layout="column" flex layout-align="center center" class="login">
-        <md-card class="md-whiteframe-4dp">
+<section layout="row" layout-align="center center" class="login">
+        <md-card flex="30" class="md-whiteframe-4dp">
             <md-toolbar>
                 <div layout="column" layout-padding layout-align="center center">
                     <div>
-                        <md-icon class="logo">home</md-icon>
+                        <h1 class=".md-display-1">EduShare</h1>
                     </div>
                     <div class="md-headline md-padding">Login</div>
                 </div>
@@ -20,7 +20,7 @@
                     </md-input-container>
                     <md-input-container class="md-block">
                         <div layout="row" layout-align="center center">
-                            <md-button class="md-raised md-accent" flex="50">Login</md-button>
+                            <a ng-click="submit()"><md-button class="md-raised md-accent" flex="25">Login</md-button></a>
                         </div>
                     </md-input-container>
                 </form>

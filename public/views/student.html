@@ -1,0 +1,49 @@
+
+<!--
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        
+        <h2>
+          <span>EduShare</span>
+        </h2>
+        <md-input-container md-no-float class="md-accent" flex="50" style="padding-top:15px;margin-left:25px">
+               <md-icon md-font-icon="search" style="padding-top:10px;font-size:36px">search</md-icon>
+              <input ng-model="searchInput" placeholder="Search">
+        </md-input-container>
+        <span flex></span>
+        
+        <md-button aria-label="Messages">
+          <span>Logout</span>
+        </md-button>
+   </div>
+</md-toolbar>
+
+-->
+
+<md-toolbar layout="row" layout-align="start center" layout-padding-bottom="10px" class="md-medium-tall" >
+  <div>
+    <h2 >
+      <span style="font-size: 50px;padding-left: 10px;">EduShare</span>
+    </h2>
+  </div>
+
+  <md-input-container md-no-float class="md-accent" flex="50" style="padding-top:30px;margin-left:50px">
+               <md-icon md-font-icon="search" style="padding-top:25px;font-size:36px">search</md-icon>
+              <input ng-model="searchInput" placeholder="Search" style="color:white;">
+  </md-input-container>
+  <span flex></span>
+  <md-button aria-label="Messages">
+          <span>Logout</span>
+  </md-button>
+
+</md-toolbar>
+
+<md-nav-bar style="padding-top: 10px;" md-selected-nav-item="student.explore">
+  <md-nav-item md-nav-sref="student.explore" name="explore"><span style="font-size: 20px; padding-right:10px;">Explore</span></md-nav-item>
+  <md-nav-item md-nav-sref="student.mycourses" name="mycourses"><span style="font-size: 20px; padding-right:10px;">My Courses</span></md-nav-item>
+  <md-nav-item md-nav-sref="student.myprofile" name="myprofile"><span style="font-size: 20px; padding-right:10px;">My Profile</span></md-nav-item>
+</md-nav-bar>
+
+<div layout="column" flex ui-view>
+</div>
+

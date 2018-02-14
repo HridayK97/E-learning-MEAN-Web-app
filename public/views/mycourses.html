@@ -1,0 +1,24 @@
+<md-content class="md-padding" layout="row" layout-wrap>
+	   <div class='md-padding' layout="row" layout-align="space-around none" layout-wrap>
+	    <md-card  flex="30" ng-repeat="n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]">
+	      <img ng-src="../img/courseimg/python.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Introduction to Python</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Learn how to code in Python.
+	        </p>
+	        <p>Instructor: Larry Wall
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button class="md-raised md-primary">Open</md-button>
+	        <md-button class="md-raised md-warn" ng-click="showConfirm($event)">Remove Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+	  </div>
+
+</md-content>
