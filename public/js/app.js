@@ -1,5 +1,7 @@
 var myApp=angular.module('sampleApp', ['ui.router','MainCtrl','LoginController','MyCoursesController','MyProfileController'
-	,'ExploreController','NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService','ngMaterial']);
+	,'ExploreController','CourseController',
+	'IMainController','IMyCoursesController','IMyProfileController','ICreateController',
+	'NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService','ngMaterial','youtube-embed']);
  
 
 
@@ -30,6 +32,39 @@ $stateProvider
             templateUrl: 'views/myprofile.html',
             controller: "MyProfileController"
         })
+        .state('student.viewcourse', {
+            url: '/viewcourse',
+            templateUrl: 'views/coursepage1.html',
+            controller: "CourseController"
+        })
+
+
+        .state('instructor', {
+            url: '/instructor',
+            templateUrl: 'views/instructor/instructor.html',
+            controller: "IMainController"
+        })
+        .state('instructor.mycourses', {
+            url: '/mycourses',
+            templateUrl: 'views/instructor/imycourses.html',
+            controller: "IMyCoursesController"
+        })
+        .state('instructor.myprofile', {
+            url: '/myprofile',
+            templateUrl: 'views/instructor/imyprofile.html',
+            controller: "IMyProfileController"
+        })
+        .state('instructor.createcourse', {
+            url: '/createcourse',
+            templateUrl: 'views/instructor/icreate.html',
+            controller: "ICreateController"
+        })
+        .state('instructor.viewcourse', {
+            url: '/viewcourse',
+            templateUrl: 'views/coursepage1.html',
+            controller: "CourseController"
+        })
+
         .state('nerd', {
             url: '/nerd',
             templateUrl: 'views/nerd.html',

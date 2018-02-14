@@ -1,4 +1,4 @@
-angular.module('MyCoursesController', []).controller('MyCoursesController', function($scope,$state,$mdDialog,$mdToast) {
+angular.module('IMyCoursesController', []).controller('IMyCoursesController', function($scope,$state,$mdDialog,$mdToast) {
 
 
 
@@ -65,7 +65,7 @@ var last = {
 
 
   $scope.viewcourse = function(){
-    $state.go('student.viewcourse');
+    $state.go('instructor.viewcourse');
 
   };
 

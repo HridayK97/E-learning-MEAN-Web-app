@@ -1,0 +1,49 @@
+
+
+<div layout="row" layout-align="center stretch">
+
+<span flex></span>
+
+<md-content flex="70" layout-align="center none">
+	
+	<h1>Enter Details</h1>
+
+	<md-input-container class="md-icon-float md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Course Name</label>
+      <md-icon md-font-icon="book">book</md-icon>
+      <input ng-model="user.name" type="text">
+    </md-input-container>
+
+    <md-input-container class="md-icon-float md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Video Link</label>
+      <md-icon md-font-icon="public">video_library</md-icon>
+      <input ng-model="user.name" type="text">
+    </md-input-container>
+
+    <md-input-container class="md-block">
+          <label>Description</label>
+          <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+	
+
+
+	<md-radio-group layout="column" ng-model="data.group1">
+
+      <md-radio-button value="Easy" class="md-primary">Easy</md-radio-button>
+      <md-radio-button value="Intermediate"> Intermediate </md-radio-button>
+      <md-radio-button value="Hard">Hard</md-radio-button>
+
+    </md-radio-group>
+
+
+    <md-button ng-click="submitcourse()" class="md-raised md-primary">Submit</md-button>
+
+
+
+</md-content>
+
+<span flex></span>
+
+</div>

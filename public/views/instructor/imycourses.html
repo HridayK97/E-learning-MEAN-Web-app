@@ -1,6 +1,6 @@
 <md-content class="md-padding" layout="row" layout-wrap>
 	   <div class='md-padding' layout="row" layout-align="space-around none" layout-wrap>
-	    <md-card  flex="30" ng-repeat="n in [1, 2, 3, 4,]">
+	    <md-card  flex="30" ng-repeat="n in [1, 2, 3]">
 	      <img ng-src="../img/courseimg/python.jpg">
 	      <md-card-title>
 	        <md-card-title-text>
@@ -16,6 +16,7 @@
 
 	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
 	        <md-button ng-click="viewcourse()" class="md-raised md-primary">Open</md-button>
+	        <md-button class="md-raised">Edit</md-button>
 	        <md-button class="md-raised md-warn" ng-click="showConfirm($event)">Remove Course</md-button>
 	      </md-card-actions>
 	    </md-card>

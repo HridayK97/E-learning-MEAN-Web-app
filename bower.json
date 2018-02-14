@@ -6,6 +6,7 @@
 		"angular": "latest",
 		"angular-route": "latest",
 		"angular-ui-router": "latest",
-		"angular-material":"latest"
+		"angular-material":"latest",
+		"angular-youtube-mb":"latest"
 	}
 }

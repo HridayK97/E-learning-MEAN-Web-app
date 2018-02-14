@@ -1,0 +1,88 @@
+<md-content md-padding>
+<div
+	
+	style="width: 100%;height: 500px;
+    background-image: url('../img/banner2.png');
+    background-size: 100% 100%;
+    border: 1px solid red;" layout="row" layout-align="end start">
+    	<div layout="column">
+    	<h1 style="margin-right:15px;font-size:80px;font-family: sans-serif;">Free Online Courses 
+    	</h1>
+    	<span style="margin-left:7px;font-size:200%">High Quality Education from Top Professors</span>
+    	
+    </div>
+</div>
+
+<div style="margin-top:10px" layout="row" layout-align="center">
+	<span></span>
+	<md-toolbar flex="50" layout-align="center" class="md-theme-light">
+    <h2 class="md-toolbar-tools">
+      <span>Recommended for You</span>
+    </h2>
+  </md-toolbar>
+  <span></span>
+</div>
+
+<div class='md-padding' layout="row" layout-align="space-around none" layout-wrap>
+	    <md-card  flex="30" ng-repeat="n in [1, 2, 3]">
+	      <img ng-src="../img/courseimg/python.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Introduction to Python</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Learn how to code in Python.
+	        </p>
+	        <p>Instructor: Larry Wall
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	        
+	      </md-card-actions>
+	    </md-card>
+	  </div>
+
+
+<div style="margin-top:10px" layout="row" layout-align="center">
+	<span></span>
+	<md-toolbar flex="50" layout-align="center" class="md-theme-light">
+    <h2 class="md-toolbar-tools">
+      <span>Browse All</span>
+    </h2>
+  </md-toolbar>
+  <span></span>
+</div>
+
+<div class='md-padding' layout="row" layout-align="space-around none" layout-wrap>
+	    <md-card  flex="30" ng-repeat="n in [1, 2, 3,4,5,6,7,8,9]">
+	      <img ng-src="../img/courseimg/python.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Introduction to Python</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Learn how to code in Python.
+	        </p>
+	        <p>Instructor: Larry Wall
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	        
+	      </md-card-actions>
+	    </md-card>
+	  </div>
+
+
+	   
+
+
+
+
+
+</md-content>

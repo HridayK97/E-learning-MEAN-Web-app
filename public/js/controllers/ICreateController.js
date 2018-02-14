@@ -1,24 +1,6 @@
-angular.module('MyCoursesController', []).controller('MyCoursesController', function($scope,$state,$mdDialog,$mdToast) {
+angular.module('ICreateController', []).controller('ICreateController', function($scope,$state,$mdToast) {
 
 
-
-
-$scope.showConfirm = function(ev) {
-    // Appending dialog to document.body to cover sidenav in docs app
-    var confirm = $mdDialog.confirm()
-          .title('Are you sure?')
-          .ariaLabel('Lucky day')
-          .targetEvent(ev)
-          .ok('Delete Course')
-          .cancel('Cancel');
-
-    $mdDialog.show(confirm).then(function() {
-      $scope.status = 'You decided to get rid of your debt.';
-      $scope.showSimpleToast();
-    }, function() {
-      $scope.status = 'You decided to keep your debt.';
-    });
-  };
 
 var last = {
       bottom: true,
@@ -56,17 +38,16 @@ var last = {
 
     $mdToast.show(
       $mdToast.simple()
-        .textContent('Course Deleted!')
+        .textContent('Course Created!')
         .position(pinTo )
         .hideDelay(3000)
     );
   };
 
+$scope.submitcourse= function(){
 
+		$scope.showSimpleToast();
 
-  $scope.viewcourse = function(){
-    $state.go('student.viewcourse');
-
-  };
-
+}
+	
 });
