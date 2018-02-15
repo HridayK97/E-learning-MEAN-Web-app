@@ -1,5 +1,5 @@
 var myApp=angular.module('sampleApp', ['ui.router','MainCtrl','LoginController','MyCoursesController','MyProfileController'
-	,'ExploreController','CourseController',
+	,'ExploreController','CourseController','CourseController2',
 	'IMainController','IMyCoursesController','IMyProfileController','ICreateController',
 	'NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService','ngMaterial','youtube-embed']);
  
@@ -36,6 +36,12 @@ $stateProvider
             url: '/viewcourse',
             templateUrl: 'views/coursepage1.html',
             controller: "CourseController"
+        })
+
+        .state('student.viewcourse2', {
+            url: '/viewcourse2',
+            templateUrl: 'views/coursepage2.html',
+            controller: "CourseController2"
         })
 
 

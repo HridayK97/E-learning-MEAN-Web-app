@@ -64,8 +64,11 @@ var last = {
 
 
 
-  $scope.viewcourse = function(){
-    $state.go('student.viewcourse');
+  $scope.viewcourse = function(num){
+    if(num==1)
+       $state.go('student.viewcourse');
+    else if(num==2)
+       $state.go('student.viewcourse2');
 
   };
 

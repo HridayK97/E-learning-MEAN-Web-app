@@ -1,4 +1,6 @@
 <md-content md-padding>
+
+<!--
 <div
 	
 	style="width: 100%;height: 500px;
@@ -12,29 +14,83 @@
     	
     </div>
 </div>
+-->
+
+<div
+	
+	style="width: 100%;height: 500px;
+    background-image: url('../img/banner2.png');
+    background-size: 100% 100%;" layout="row" layout-align="end start">
+    	<div layout="column">
+    	<h1 style="margin-right:15px;font-size:80px;font-family: sans-serif;">Free Online Courses 
+    	</h1>
+    	<span style="margin-left:7px;font-size:200%">High Quality Education from Top Professors</span>
+    	
+    </div>
+</div>
 
 <div style="margin-top:10px" layout="row" layout-align="center">
 	<span></span>
-	<md-toolbar flex="50" layout-align="center" class="md-theme-light">
-    <h2 class="md-toolbar-tools">
+	<md-toolbar flex="50" layout="row" layout-align="center none" class="md-theme-light">
+    <h2 >
       <span>Recommended for You</span>
     </h2>
   </md-toolbar>
   <span></span>
 </div>
-
+<!--ng-repeat="n in [1, 2, 3]"-->
 <div class='md-padding' layout="row" layout-align="space-around none" layout-wrap>
-	    <md-card  flex="30" ng-repeat="n in [1, 2, 3]">
-	      <img ng-src="../img/courseimg/python.jpg">
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/is.jpg">
 	      <md-card-title>
 	        <md-card-title-text>
-	          <span class="md-headline">Introduction to Python</span>
+	          <span class="md-headline">Information Security</span>
 	        </md-card-title-text>
 	      </md-card-title>
 	      <md-card-content>
-	        <p>Learn how to code in Python.
+	        <p>This course focuses on the fundamentals of information security that are used in protecting the information in computer storage as well as data traveling over computer networks. 
 	        </p>
-	        <p>Instructor: Larry Wall
+	        <p>Instructor: Jaidhar CD
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	        
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/cplus.jpeg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">C++ Fundamentals</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>This course focuses on the basics of the C++ Programming Language. No Pre-requisite coding knowledge is required.
+	        </p>
+	        <p>Instructor: Martin Adams
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	        
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/chem.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Chemistry</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Advanced chemistry course which explores topics in organic chemistry, biochemistry, and physical chemistry.
+	        </p>
+	        <p>Instructor: James White
 	        </p>
 	      </md-card-content>
 
@@ -48,16 +104,16 @@
 
 <div style="margin-top:10px" layout="row" layout-align="center">
 	<span></span>
-	<md-toolbar flex="50" layout-align="center" class="md-theme-light">
-    <h2 class="md-toolbar-tools">
-      <span>Browse All</span>
+	<md-toolbar flex="50" layout="row" layout-align="center none" class="md-theme-light">
+    <h2 >
+      <span>Browse All Courses</span>
     </h2>
   </md-toolbar>
   <span></span>
 </div>
 
 <div class='md-padding' layout="row" layout-align="space-around none" layout-wrap>
-	    <md-card  flex="30" ng-repeat="n in [1, 2, 3,4,5,6,7,8,9]">
+	    <md-card  flex="30">
 	      <img ng-src="../img/courseimg/python.jpg">
 	      <md-card-title>
 	        <md-card-title-text>
@@ -73,9 +129,285 @@
 
 	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
 	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/hci.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Human Computer Interaction</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Introductory course on Human Computer Interaction with human psychology behind using computers. 
+	        </p>
+	        <p>Instructor: Ashwin TS
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/cv.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Computer Vision</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>This course will teach you how to build convolutional neural networks and apply it to image data. 
+	        </p>
+	        <p>Instructor: Dinesh Naik
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/chem.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Chemistry</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Advanced chemistry course which explores topics in organic chemistry, biochemistry, and physical chemistry.
+	        </p>
+	        <p>Instructor: James White
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
 	        
 	      </md-card-actions>
 	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/is.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Information Security</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>This course focuses on the fundamentals of information security that are used in protecting the information in computer storage as well as data traveling over computer networks. 
+	        </p>
+	        <p>Instructor: Jaidhar CD
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	        
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/cplus.jpeg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">C++ Fundamentals</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>This course focuses on the basics of the C++ Programming Language. No Pre-requisite coding knowledge is required.
+	        </p>
+	        <p>Instructor: Martin Adams
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	        
+	      </md-card-actions>
+	    </md-card>
+
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/python.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Introduction to Python</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Learn how to code in Python.
+	        </p>
+	        <p>Instructor: Larry Wall
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+ 		<md-card  flex="30">
+	      <img ng-src="../img/courseimg/cv.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Computer Vision</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>This course will teach you how to build convolutional neural networks and apply it to image data. 
+	        </p>
+	        <p>Instructor: Dinesh Naik
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/hci.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Human Computer Interaction</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Introductory course on Human Computer Interaction with human psychology behind using computers. 
+	        </p>
+	        <p>Instructor: Ashwin TS
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/cplus.jpeg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">C++ Fundamentals</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>This course focuses on the basics of the C++ Programming Language. No Pre-requisite coding knowledge is required.
+	        </p>
+	        <p>Instructor: Martin Adams
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	        
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/chem.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Chemistry</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Advanced chemistry course which explores topics in organic chemistry, biochemistry, and physical chemistry.
+	        </p>
+	        <p>Instructor: James White
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	        
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/is.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Information Security</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>This course focuses on the fundamentals of information security that are used in protecting the information in computer storage as well as data traveling over computer networks. 
+	        </p>
+	        <p>Instructor: Jaidhar CD
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	        
+	      </md-card-actions>
+	    </md-card>
+
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/cv.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Computer Vision</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>This course will teach you how to build convolutional neural networks and apply it to image data. 
+	        </p>
+	        <p>Instructor: Dinesh Naik
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/hci.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Human Computer Interaction</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Introductory course on Human Computer Interaction with human psychology behind using computers. 
+	        </p>
+	        <p>Instructor: Ashwin TS
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/python.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Introduction to Python</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Learn how to code in Python.
+	        </p>
+	        <p>Instructor: Larry Wall
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast()" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+	    
 	  </div>
 
 

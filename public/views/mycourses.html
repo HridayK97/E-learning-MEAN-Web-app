@@ -1,6 +1,6 @@
 <md-content class="md-padding" layout="row" layout-wrap>
 	   <div class='md-padding' layout="row" layout-align="space-around none" layout-wrap>
-	    <md-card  flex="30" ng-repeat="n in [1, 2, 3, 4,]">
+	    <md-card  flex="30">
 	      <img ng-src="../img/courseimg/python.jpg">
 	      <md-card-title>
 	        <md-card-title-text>
@@ -15,7 +15,47 @@
 	      </md-card-content>
 
 	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
-	        <md-button ng-click="viewcourse()" class="md-raised md-primary">Open</md-button>
+	        <md-button ng-click="viewcourse(1)" class="md-raised md-primary">Open</md-button>
+	        <md-button class="md-raised md-warn" ng-click="showConfirm($event)">Remove Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/hci.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Human Computer Interaction</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>Introductory course on Human Computer Interaction with human psychology behind using computers. 
+	        </p>
+	        <p>Instructor: Ashwin TS
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="viewcourse(2)" class="md-raised md-primary">Open</md-button>
+	        <md-button class="md-raised md-warn" ng-click="showConfirm($event)">Remove Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+	    <md-card  flex="30">
+	      <img ng-src="../img/courseimg/cv.jpg">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">Computer Vision</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>This course will teach you how to build convolutional neural networks and apply it to image data. 
+	        </p>
+	        <p>Instructor: Dinesh Naik
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="viewcourse(2)" class="md-raised md-primary">Open</md-button>
 	        <md-button class="md-raised md-warn" ng-click="showConfirm($event)">Remove Course</md-button>
 	      </md-card-actions>
 	    </md-card>
