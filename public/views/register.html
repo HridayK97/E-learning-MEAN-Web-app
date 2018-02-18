@@ -1,0 +1,84 @@
+
+
+<section style="width: 100%;height: 100%;
+    background-image: url('../img/background.jpg');
+    background-size: 100% 100%;" layout="column" layout-align="center none" class="login">
+        <div layout="row" layout-align="center center" class="login">
+        <md-card flex="30" class="md-whiteframe-4dp">
+            <md-toolbar>
+                <div layout="column" layout-padding layout-align="center center">
+                    <div>
+                        <h1 class=".md-display-1">Register</h1>
+                    </div>
+                </div>
+            </md-toolbar>
+            <md-card-content>
+                <form name="registerForm" ng-submit="submit()">
+                    <md-input-container class="md-block">
+                        <label for="email">Email</label>
+                        <input minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" required type="email" name="userEmail" ng-model="user.email" />
+                        <div ng-messages="registerForm.userEmail.$error" role="alert">
+                          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                            Email must be between 10 and 100 characters long and look like an e-mail address.
+                          </div>
+                      </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label for="password">Password</label>
+                        <input required type="password" name="password" ng-model="user.pass" minlength="6"/>
+                        <div ng-messages="registerForm.password.$error" ng-if="!showHints">
+                            <div ng-message="required">Password is required.</div>
+                            <div ng-message="minlength">Password must have at least six characters.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label for="password">Confirm Password</label>
+                        <input required type="password" name="confirmpassword" ng-model="user.passconfirm" minlength="6" />
+                        <div ng-messages="registerForm.confirmpassword.$error" ng-if="!showHints">
+                            <div ng-message="required">Password is required.</div>
+                            <div ng-message="minlength">Password must have at least six characters.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label for="password">Phone Number</label>
+                        <input required type="number" name="phoneNo" ng-model="user.phoneNo" minlength="10" maxlength="10" />
+                        <div ng-messages="registerForm.phoneNo.$error">
+                            <div ng-message="required">Phone Number is required.</div>
+                            <div ng-message="minlength">Phone Number must be 10 digits.</div>
+                            <div ng-message="maxlength">Phone Number must be 10 digits.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label for="password">College/University</label>
+                        <input type="text" name="clgName" ng-model="user.clgName" />
+                        <div ng-messages="registerForm.clgName.$error">
+                        
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                    <md-radio-group ng-model="user.type">
+
+                      <md-radio-button value="Instructor">Instructor</md-radio-button>
+                      <md-radio-button value="Student">Student</md-radio-button>
+
+                    </md-radio-group>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <div layout="row" layout-align="center center">
+                            <md-button type="submit" md-colors="{background: '{{color}}'}" md-colors-watch="false" class="md-raised md-primary" flex="25">Register</md-button>
+                        </div>
+                    </md-input-container>
+                </form>
+            </md-card-content>
+
+        </md-card>
+    </div>
+
+
+
+
+
+
+

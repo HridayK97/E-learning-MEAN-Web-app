@@ -1,7 +1,8 @@
-var myApp=angular.module('sampleApp', ['ui.router','MainCtrl','LoginController','MyCoursesController','MyProfileController'
+var myApp=angular.module('sampleApp', ['ui.router','MainCtrl','LoginController','RegisterController','MyCoursesController','MyProfileController'
 	,'ExploreController','CourseController','CourseController2',
 	'IMainController','IMyCoursesController','IMyProfileController','ICreateController',
-	'NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService','ngMaterial','youtube-embed']);
+
+	'NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService','ngMaterial','youtube-embed','ngMessages']);
  
 
 
@@ -11,6 +12,11 @@ $stateProvider
             url: '/login',
             templateUrl: 'views/login.html',
             controller: "LoginController"
+        })
+        .state('register', {
+            url: '/register',
+            templateUrl: 'views/register.html',
+            controller: "RegisterController"
         })
         .state('student', {
             url: '/student',

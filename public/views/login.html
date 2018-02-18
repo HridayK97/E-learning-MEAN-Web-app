@@ -1,4 +1,9 @@
-<section layout="row" layout-align="center center" class="login">
+
+        
+<section style="width: 100%;height: 100%;
+    background-image: url('../img/background.jpg');
+    background-size: 100% 100%;" layout="column" layout-align="center none" class="login">
+        <div layout="row" layout-align="center center" class="login">
         <md-card flex="30" class="md-whiteframe-4dp">
             <md-toolbar>
                 <div layout="column" layout-padding layout-align="center center">
@@ -9,22 +14,33 @@
                 </div>
             </md-toolbar>
             <md-card-content>
-                <form name="login">
+                <form name="loginForm">
                     <md-input-container class="md-block">
                         <label for="email">Email/Username</label>
                         <input type="text" name="email" ng-model="user.email" required />
+                        <div ng-messages="loginForm.email.$error">
+                            <div ng-message="required">Enter username/email.</div>
+                        </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <label for="password">Password</label>
                         <input type="password" name="password" ng-model="user.pass" required />
+                        <div ng-messages="loginForm.password.$error">
+                            <div ng-message="required">Enter password.</div>
+                        </div>
                     </md-input-container>
                     <md-input-container class="md-block">
                         <div layout="row" layout-align="center center">
                             <a ng-click="submit()"><md-button class="md-raised md-accent" flex="25">Login</md-button></a>
+                            <a ng-click="register()"><md-button md-colors="{background: '{{color}}'}" md-colors-watch="false" class="md-raised" flex="25">Register</md-button></a>
                         </div>
                     </md-input-container>
                 </form>
             </md-card-content>
         </md-card>
-    </section>
-</div>
+    </div>
+
+
+
+
+</section>
