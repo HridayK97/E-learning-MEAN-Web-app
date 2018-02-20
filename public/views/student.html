@@ -20,7 +20,7 @@
 
 -->
 
-<md-toolbar layout="row" layout-align="start center" layout-padding-bottom="10px" class="md-medium-tall" >
+<md-toolbar layout="row" layout-align="start center" layout-padding-bottom="10px" class="md-medium-tall md-whiteframe-4dp" >
   <div>
     <h2 >
       <span style="font-size: 50px;padding-left: 10px;">EduShare</span>
@@ -32,13 +32,13 @@
               <input ng-model="searchInput" placeholder="Search" style="color:white;">
   </md-input-container>
   <span flex></span>
-  <md-button ui-sref="login" aria-label="Messages">
+  <md-button ui-sref="login" class="md-raised md-accent" aria-label="Messages">
           <span>Logout</span>
   </md-button>
 
 </md-toolbar>
 
-<md-nav-bar md-no-ink-bar="false" style="padding-top: 10px;" md-selected-nav-item="currentNavItem">
+<md-nav-bar class=" md-whiteframe-4dp" md-no-ink-bar="false" style="padding-top: 10px;" md-selected-nav-item="currentNavItem">
   <md-nav-item md-nav-sref="student.explore" name="explore"><span style="text-transform: capitalize;font-size: 20px; padding-right:10px;">Explore</span></md-nav-item>
   <md-nav-item md-nav-sref="student.mycourses" name="mycourses"><span style="text-transform: capitalize;font-size: 20px; padding-right:10px;">My Courses</span></md-nav-item>
   <md-nav-item md-nav-sref="student.myprofile" name="myprofile"><span style="text-transform: capitalize;font-size: 20px; padding-right:10px;">My Profile</span></md-nav-item>

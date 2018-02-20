@@ -4,7 +4,8 @@
 
 <span flex></span>
 
-<md-content flex="70" layout-align="center none">
+<form flex="70" layout-align="center none" ng-submit="submitcourse()">
+
 	
 	<h1>Enter Details</h1>
 
@@ -12,19 +13,19 @@
       <!-- Use floating label instead of placeholder -->
       <label>Course Name</label>
       <md-icon md-font-icon="book">book</md-icon>
-      <input ng-model="user.name" type="text">
+      <input required ng-model="course.name" type="text">
     </md-input-container>
 
     <md-input-container class="md-icon-float md-block">
       <!-- Use floating label instead of placeholder -->
       <label>Video Link</label>
       <md-icon md-font-icon="public">video_library</md-icon>
-      <input ng-model="user.name" type="text">
+      <input required ng-model="course.link" type="text">
     </md-input-container>
 
     <md-input-container class="md-block">
           <label>Description</label>
-          <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          <textarea required ng-model="course.des" md-maxlength="150" rows="5" md-select-on-focus></textarea>
         </md-input-container>
 	
 
@@ -38,11 +39,9 @@
     </md-radio-group>
 
 
-    <md-button ng-click="submitcourse()" class="md-raised md-primary">Submit</md-button>
+    <md-button type="submit" class="md-raised md-primary">Submit</md-button>
 
-
-
-</md-content>
+</form>
 
 <span flex></span>
 
