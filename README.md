@@ -19,3 +19,5 @@ Password: password
 Login for instructor:
 Username: instructor
 Password: password
+# E-learning-MEAN-Web-app
+E-learning web app using the MEAN stack
