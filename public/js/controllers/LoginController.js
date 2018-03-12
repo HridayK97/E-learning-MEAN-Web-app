@@ -1,4 +1,4 @@
-angular.module('LoginController', ['RegisterService']).controller('LoginController', function($scope,$state,$mdToast,RegisterService) {
+angular.module('LoginController', ['RegisterService','LoginService']).controller('LoginController', function($scope,$state,$mdToast,RegisterService,LoginService) {
 
 $scope.user={}
 	
@@ -70,6 +70,52 @@ $scope.user={}
 	}
 
 	$scope.submit=function(){
+
+    var currentUser={}
+    var password;
+
+    var promise = LoginService.getUser($scope.user.email);
+    //console.log(promise);
+    promise.then(
+      function(payload) {
+        if(payload.data==null)
+        {
+          $scope.showUserErrorToast();
+        }
+        else
+        {
+            console.log(payload.data._id);
+            if(payload.data.password==$scope.user.pass)
+             { console.log("success login");
+                currentUser._id=payload.data._id;
+                currentUser.username=payload.data.username;
+                currentUser.type=payload.data.type;
+
+                LoginService.setCurrentUser(currentUser);
+
+
+                if(payload.data.type=="instructor")
+                    $state.go('instructor.mycourses');
+                else
+                    $state.go('student.explore');
+
+
+            }
+            else
+              {
+               console.log("wrong pass");
+               $scope.showPassErrorToast();
+              }
+        }
+
+
+    },
+      function(error){
+        console.log("error");
+    });
+
+    //console.log(user);
+/*
 		if($scope.user.email==="instructor"){
 			if($scope.user.pass=="password")
 				$state.go('instructor.mycourses');
@@ -92,7 +138,7 @@ $scope.user={}
 			 $scope.showUserErrorToast();
 		}
 
-
+*/
 	}
 
 	$scope.register=function(){
