@@ -33,7 +33,11 @@ const courseSchema = mongoose.Schema({
 	category:{
 		type: String,
 		required: true
-	}
+	},
+	card_description:{
+		type: String,
+		required: true
+	},
 });
 
 const Course = module.exports = mongoose.model('Course', courseSchema);

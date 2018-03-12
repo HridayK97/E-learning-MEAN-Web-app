@@ -75,8 +75,8 @@ app.get('/api/courses', (req, res) => {
 });
 
 //get course by id
-app.get('/api/courses/:_id', (req, res) => {
-	var id = req.params._id;
+app.get('/api/courses/:id', (req, res) => {
+	var id = req.params.id;
 	console.log(id);
 	//var genre = req.body;
 	Course.getCourseById(id, (err, course) => {
@@ -89,6 +89,19 @@ app.get('/api/courses/:_id', (req, res) => {
 
 	});
 });
+
+//add course to student user ,update user
+app.put('/api/users/:_id', (req, res) => {
+	var id = req.params._id;
+	var user = req.body;
+	User.updateUser(id, user, {}, (err, user) => {
+		if(err){
+			throw err;
+		}
+		res.json(user);
+	});
+});
+
 
 
 

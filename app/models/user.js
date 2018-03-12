@@ -13,6 +13,10 @@ const userSchema = mongoose.Schema({
 	type:{
 		type: String,
 		required: true
+	},
+	courses:{
+		type: Array,
+		required: true
 	}
 });
 
@@ -32,6 +36,20 @@ module.exports.getUserByUsername = (name,callback) => {
 	
 	//var query = {'username': username};
 	User.findOne({username:name},callback);
+}
+
+
+module.exports.updateUser = (id, user, options, callback) => {
+	var query = {_id: id};
+	console.log(id);
+	console.log(user);
+	var update = {
+		username: user.username,
+		password: user.password,
+		type: user.type,
+		courses: user.courses
+	}
+	User.findOneAndUpdate(query, user, options, callback);
 }
 
 module.exports.updateGenre = (id, genre, options, callback) => {

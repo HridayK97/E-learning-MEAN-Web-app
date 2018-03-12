@@ -1,5 +1,9 @@
-angular.module('CourseController', []).controller('CourseController', function($scope,$state) {
+angular.module('CourseController', []).controller('CourseController', function($scope,$state,$stateParams) {
 
-	$scope.theBestVideo = 'N0lxfilGfak';
+	
+
+	//console.log($stateParams.course.name);
+	$scope.content=$stateParams.course;
+	//$scope.theBestVideo = 'N0lxfilGfak';
 
 });

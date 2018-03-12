@@ -89,7 +89,9 @@ $scope.user={}
              { console.log("success login");
                 currentUser._id=payload.data._id;
                 currentUser.username=payload.data.username;
+                currentUser.password=payload.data.password;
                 currentUser.type=payload.data.type;
+                currentUser.courses=payload.data.courses;
 
                 LoginService.setCurrentUser(currentUser);
 
