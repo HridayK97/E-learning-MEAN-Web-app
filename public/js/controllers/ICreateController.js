@@ -1,4 +1,17 @@
-angular.module('ICreateController', []).controller('ICreateController', function($scope,$state,$mdToast) {
+angular.module('ICreateController', ['CourseService','AppUserService']).controller('ICreateController', function($scope,$state,$mdToast,$stateParams,CourseService,AppUserService) {
+
+
+
+
+$scope.isUpdate=false;
+
+if($stateParams.course!=null){
+    $scope.course=$stateParams.course;
+    $scope.isUpdate=true;
+  }
+
+
+
 
 
 
@@ -44,9 +57,63 @@ var last = {
     );
   };
 
+  $scope.showEditedToast = function() {
+    var pinTo = $scope.getToastPosition();
+
+    $mdToast.show(
+      $mdToast.simple()
+        .textContent('Changes Saved.')
+        .position(pinTo )
+        .hideDelay(3000)
+    );
+  };
+
 $scope.submitcourse= function(){
 
-		$scope.showSimpleToast();
+  if($scope.isUpdate==true)
+  {
+      CourseService.updateCourse($scope.course);
+      $scope.showEditedToast();
+      $state.reload('instructor.mycourses');
+  }
+  else{
+  var currentUser= AppUserService.getCurrentUser();
+
+  var courseData=$scope.course;
+  courseData.instructor_name=currentUser.name;
+  courseData.instructor_id=currentUser._id;
+  var promise = CourseService.addCourse(courseData);
+    //console.log(promise);
+    promise.then(
+      function(payload) {
+        if(payload.data==null)
+        {
+          //$scope.showUserErrorToast();
+          console.log("Course creation failed");
+        }
+        else
+        {
+          console.log("Course Creation Success");
+          //currentUser= AppUserService.getCurrentUser();
+          currentUser.courses.push(payload.data._id);
+          AppUserService.updateUser(currentUser);
+          AppUserService.setCurrentUser(currentUser);
+          $state.reload('instructor.mycourses');
+          $scope.showSimpleToast();
+          //$state.go('instructor.mycourses');   
+        }
+
+
+    },
+      function(error){
+        console.log("error");
+    });
+
+}
+
+
+
+		//$scope.showSimpleToast();
 
 }
 	

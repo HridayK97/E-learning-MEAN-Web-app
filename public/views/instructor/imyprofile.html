@@ -5,8 +5,59 @@
 </div>
 <span></span>
 <md-content flex 40 class="md-no-momentum">
+    <form name="registerForm" ng-submit="submit()">
+
+                    <md-input-container class="md-block">
+                        <label for="username">Name</label>
+                        <md-icon md-font-icon="book">account_circle</md-icon>
+                        <input required ng-disabled="profileDisabled" type="text" name="username" ng-model="user.name" minlength="1"/>
+                        <div ng-messages="registerForm.username.$error" ng-if="!showHints">
+                            <div ng-message="required">Name is required.</div>
+                            <div ng-message="minlength">Name can not be Empty.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label for="email">Email</label>
+                        <md-icon md-font-icon="account circle">email</md-icon>
+                        <input ng-disabled="profileDisabled" minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" required type="email" name="userEmail" ng-model="user.email" />
+                        <div ng-messages="registerForm.userEmail.$error" role="alert">
+                          <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                            Email must be between 10 and 100 characters long and look like an e-mail address.
+                          </div>
+                      </div>
+                    </md-input-container>
+                    
+                    <md-input-container class="md-block">
+                        <label for="password">Phone Number</label>
+                        <md-icon md-font-icon="account circle">local_phone</md-icon>
+                        <input  ng-disabled="profileDisabled" required type="number" name="phone" ng-model="user.phone" minlength="10" maxlength="10" />
+                        <div ng-messages="registerForm.phone.$error">
+                            <div ng-message="required">Phone Number is required.</div>
+                            <div ng-message="minlength">Phone Number must be 10 digits.</div>
+                            <div ng-message="maxlength">Phone Number must be 10 digits.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label for="password">College/University</label>
+                        <md-icon md-font-icon="account circle">school</md-icon>
+                        <input ng-disabled="profileDisabled" type="text" name="clgName" ng-model="user.clg" />
+                        <div ng-messages="registerForm.clgName.$error">
+                        
+                        </div>
+                    </md-input-container>
+    
+                    <md-input-container class="md-block">
+                        <div layout="row" layout-align="center center">
+                            <md-button ng-click="edit()" ng-show="!showSave" md-colors="{background: '{{color}}'}" md-colors-watch="false" class="md-raised md-primary" flex="25">Edit Details</md-button>
+                            <md-button ng-show="showSave" type="submit" md-colors="{background: '{{color}}'}" md-colors-watch="false" class="md-raised md-primary" flex="25">Save Details</md-button>
+                        </div>
+                    </md-input-container>
+                </form>
+
+  <!--
     <md-input-container class="md-icon-float md-block">
-      <!-- Use floating label instead of placeholder -->
+      Use floating label instead of placeholder 
       <label>Name</label>
       <md-icon md-font-icon="account circle">account_circle</md-icon>
       <input placeholder="Ashwin TS" disabled ng-model="user.name" type="text">
@@ -19,7 +70,7 @@
     </md-input-container>
 
     <md-input-container class="md-icon-float md-block">
-      <!-- Use floating placeholder instead of label -->
+       Use floating placeholder instead of label 
       <label>Email</label>
       <md-icon md-font-icon="account circle">email</md-icon>
       <input disabled ng-model="user.email" type="email" placeholder="ashwin@nitk.ac.in" ng-required="false">
@@ -30,6 +81,7 @@
       <md-icon md-font-icon="account circle">school</md-icon>
       <input disabled placeholder="National Institute of Technology Karnataka" ng-model="user.donation" type="text">
     </md-input-container>
+  -->
 
   </md-content>
 <div flex>

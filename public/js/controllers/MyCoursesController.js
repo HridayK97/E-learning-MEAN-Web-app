@@ -1,9 +1,66 @@
-angular.module('MyCoursesController', []).controller('MyCoursesController', function($scope,$state,$mdDialog,$mdToast) {
+angular.module('MyCoursesController', ['CourseService','LoginService','AppUserService']).controller('MyCoursesController', function($scope,$state,$mdDialog,$mdToast,CourseService,LoginService,AppUserService) {
 
 
 
 
-$scope.showConfirm = function(ev) {
+
+
+  var currentUser= LoginService.getCurrentUser();
+  //console.log(currentUser);
+  var courses=currentUser.courses;
+  $scope.mycourses=[];
+  console.log(courses);
+  //console.log(courses[0]);
+  for(i=0;i<courses.length;i++){
+    console.log(courses[i]);
+  }
+  for(i=0;i<courses.length;i++){
+
+        var promise = CourseService.getCourse(courses[i]);
+        //console.log(promise);
+        promise.then(
+          function(payload) {
+            if(payload.data==null)
+            {
+                console.log('error in showing course, maybe doesnt exist??');
+            }
+            else{
+                  $scope.mycourses.push(payload.data);
+            }
+            
+
+
+        },
+          function(error){
+            console.log("error");
+        });
+
+        console.log($scope.mycourses);
+
+
+  }
+
+  /*var promise = CourseService.getCourse($scope.user.email);
+  //console.log(promise);
+  promise.then(
+    function(payload) {
+      if(payload.data==null)
+      {
+        $scope.showUserErrorToast();
+      }
+      else{
+
+      }
+      
+
+
+  },
+    function(error){
+      console.log("error");
+  });
+*/
+  
+$scope.showConfirm = function(ev,selected_id) {
     // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title('Are you sure?')
@@ -13,10 +70,11 @@ $scope.showConfirm = function(ev) {
           .cancel('Cancel');
 
     $mdDialog.show(confirm).then(function() {
-      $scope.status = 'You decided to get rid of your debt.';
-      $scope.showSimpleToast();
+      $scope.status = 'You decided to delete';
+      $scope.deleteCourse(selected_id);
+      //$scope.showSimpleToast();
     }, function() {
-      $scope.status = 'You decided to keep your debt.';
+      $scope.status = 'You decided to not delete.';
     });
   };
 
@@ -62,14 +120,28 @@ var last = {
     );
   };
 
+  $scope.deleteCourse = function(course_id){
+      currentUser=AppUserService.getCurrentUser();
 
 
-  $scope.viewcourse = function(num){
-    if(num==1)
+      var index = currentUser.courses.indexOf(course_id);
+      if (index !== -1) 
+          currentUser.courses.splice(index, 1);
+      AppUserService.updateUser(currentUser);
+      AppUserService.setCurrentUser(currentUser);
+      $state.reload('student.mycourses');
+      $scope.showSimpleToast();
+  }
+
+  $scope.viewcourse = function(selected){
+    /*if(num==1)
        $state.go('student.viewcourse');
     else if(num==2)
        $state.go('student.viewcourse2');
 
+     */
+
+      $state.go('student.viewcourse',{course: selected});
   };
 
 });

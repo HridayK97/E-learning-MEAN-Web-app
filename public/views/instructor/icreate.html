@@ -4,7 +4,7 @@
 
 <span flex></span>
 
-<form flex="70" layout-align="center none" ng-submit="submitcourse()">
+<form name="createCourseForm" flex="70" layout-align="center none" ng-submit="submitcourse()">
 
 	
 	<h1>Enter Details</h1>
@@ -13,24 +13,53 @@
       <!-- Use floating label instead of placeholder -->
       <label>Course Name</label>
       <md-icon md-font-icon="book">book</md-icon>
-      <input required ng-model="course.name" type="text">
+      <input required name="name" ng-model="course.name" type="text">
+      <div ng-messages="createCourseForm.name.$error" ng-if="!showHints">
+              <div ng-message="required">Name is required.</div>
+        </div>
     </md-input-container>
 
     <md-input-container class="md-icon-float md-block">
       <!-- Use floating label instead of placeholder -->
       <label>Video Link</label>
       <md-icon md-font-icon="public">video_library</md-icon>
-      <input required ng-model="course.link" type="text">
+      <input required name="vidlink" ng-model="course.vidlink" type="text">
+      <div ng-messages="createCourseForm.vidlink.$error" ng-if="!showHints">
+              <div ng-message="required">Valid Link is Required</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-icon-float md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Image URL</label>
+      <md-icon md-font-icon="public">image</md-icon>
+      <input required name="image" ng-model="course.image" type="text">
+      <div ng-messages="createCourseForm.image.$error" ng-if="!showHints">
+              <div ng-message="required">Course Image is required.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-icon-float md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Preview Text</label>
+      <md-icon md-font-icon="public">description</md-icon>
+      <input required name="card_des" ng-model="course.card_description" type="text">
+      <div ng-messages="createCourseForm.card_des.$error" ng-if="!showHints">
+              <div ng-message="required">Required.</div>
+        </div>
     </md-input-container>
 
     <md-input-container class="md-block">
           <label>Description</label>
-          <textarea required ng-model="course.des" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          <textarea required name="description" ng-model="course.description" md-maxlength="1000" rows="5" md-select-on-focus></textarea>
+          <div ng-messages="createCourseForm.description.$error" ng-if="!showHints">
+              <div ng-message="required">Course Description is Required.</div>
+        </div>
         </md-input-container>
 	
 
 
-	<md-radio-group layout="column" ng-model="data.group1">
+	<md-radio-group layout="column" ng-model="course.difficulty">
 
       <md-radio-button value="Easy" class="md-primary">Easy</md-radio-button>
       <md-radio-button value="Intermediate"> Intermediate </md-radio-button>

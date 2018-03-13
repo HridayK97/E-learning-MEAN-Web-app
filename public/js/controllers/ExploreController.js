@@ -1,4 +1,36 @@
-angular.module('ExploreController', []).controller('ExploreController', function($scope,$state,$mdToast) {
+angular.module('ExploreController', ['CourseService','AppUserService']).controller('ExploreController', function($scope,$state,$mdToast,CourseService,AppUserService) {
+
+
+
+
+
+
+$scope.allCourses=[];
+
+var promise = CourseService.getCourses();
+        //console.log(promise);
+        promise.then(
+          function(payload) {
+
+
+            console.log(payload.data);
+            if(payload.data==null)
+            {
+                console.log('NO COURSES!!!!');
+            }
+            else{
+                  $scope.allCourses=payload.data;
+                  console.log($scope.allCourses);
+            }
+            
+
+
+        },
+          function(error){
+            console.log("error");
+        });
+
+
 
 
 	var last = {
@@ -32,15 +64,39 @@ angular.module('ExploreController', []).controller('ExploreController', function
 
 
 
-  $scope.showSimpleToast = function() {
-    var pinTo = $scope.getToastPosition();
+  $scope.showSimpleToast = function(course_id) {
 
-    $mdToast.show(
-      $mdToast.simple()
+
+    var pinTo = $scope.getToastPosition();
+    var currentUser= AppUserService.getCurrentUser();
+
+    if(currentUser.courses.indexOf(course_id) !=-1)
+      {
+          console.log("Already added.");
+          $mdToast.show(
+            $mdToast.simple()
+              .textContent('You have already added the course.')
+              .position(pinTo )
+              .hideDelay(3000)
+          );
+      }
+
+      else
+      {
+        currentUser.courses.push(course_id);
+          AppUserService.updateUser(currentUser);
+          AppUserService.setCurrentUser(currentUser);
+          $state.reload('student.mycourses');
+
+          $mdToast.show(
+          $mdToast.simple()
         .textContent('Course Added! View course in My Courses.')
         .position(pinTo )
         .hideDelay(3000)
     );
+      }
+
+
   };
 
 
