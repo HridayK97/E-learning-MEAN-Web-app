@@ -91,11 +91,32 @@ angular.module('CourseService', []).factory('CourseService', ['$http', function(
 
 
 
+	var removeCourse = function(id){
+		var courseId=id;
+
+		return $http({
+		      method: 'DELETE',
+		      url: '/api/courses/'+courseId
+		   }).then(function (response){
+		   		//var course = response;
+		   		console.log("success deleting");
+				return response;
+
+		   },function (error){
+		   	console.log('error while deleting');
+		   		return;
+
+		   });
+	}
+
+
+
 	return {
 	getCourses:getCourses,
     getCourse:getCourse,
     addCourse:addCourse,
-    updateCourse:updateCourse
+    updateCourse:updateCourse,
+    removeCourse:removeCourse
     };
 
 

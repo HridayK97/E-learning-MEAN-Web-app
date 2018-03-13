@@ -76,6 +76,11 @@ module.exports.updateCourse = (id, course, options, callback) => {
 	Course.findOneAndUpdate(query, course, options, callback);
 }
 
+module.exports.removeCourse = (id, callback) => {
+	var query = {_id: id};
+	Course.remove(query, callback);
+}
+
 module.exports.updateGenre = (id, genre, options, callback) => {
 	var query = {_id: id};
 	var update = {

@@ -45,6 +45,23 @@ angular.module('AppUserService', ['ngCookies']).factory('AppUserService', ['$htt
 		   });
 	}
 
+	var getUsers = function(){
+
+		return $http({
+		      method: 'GET',
+		      url: '/api/users/'
+		   }).then(function (response){
+		   		var user = response;
+		   		console.log( user);
+				return response;
+
+		   },function (error){
+		   	console.log('can not get data.');
+		   		return;
+
+		   });
+	}
+
 	var updateUser = function(userData){
 		//var userData=getCurrentUser();
 		var id=userData._id;
@@ -78,6 +95,7 @@ angular.module('AppUserService', ['ngCookies']).factory('AppUserService', ['$htt
 	setCurrentUser:setCurrentUser,
 	getCurrentUser:getCurrentUser,
     getUser:getUser,
+    getUsers:getUsers,
     updateUser:updateUser
     };
 

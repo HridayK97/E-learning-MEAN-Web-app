@@ -51,7 +51,7 @@
 
     <md-input-container class="md-block">
           <label>Description</label>
-          <textarea required name="description" ng-model="course.description" md-maxlength="200" rows="5" md-select-on-focus></textarea>
+          <textarea required name="description" ng-model="course.description" md-maxlength="1000" rows="5" md-select-on-focus></textarea>
           <div ng-messages="createCourseForm.description.$error" ng-if="!showHints">
               <div ng-message="required">Course Description is Required.</div>
         </div>

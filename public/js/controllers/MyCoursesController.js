@@ -60,7 +60,7 @@ angular.module('MyCoursesController', ['CourseService','LoginService','AppUserSe
   });
 */
   
-$scope.showConfirm = function(ev) {
+$scope.showConfirm = function(ev,selected_id) {
     // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title('Are you sure?')
@@ -70,10 +70,11 @@ $scope.showConfirm = function(ev) {
           .cancel('Cancel');
 
     $mdDialog.show(confirm).then(function() {
-      $scope.status = 'You decided to get rid of your debt.';
-      $scope.showSimpleToast();
+      $scope.status = 'You decided to delete';
+      $scope.deleteCourse(selected_id);
+      //$scope.showSimpleToast();
     }, function() {
-      $scope.status = 'You decided to keep your debt.';
+      $scope.status = 'You decided to not delete.';
     });
   };
 

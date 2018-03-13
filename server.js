@@ -141,20 +141,17 @@ app.put('/api/courses/:_id', (req, res) => {
 });
 
 
+//delete course(instructor)
 
-
-
-app.put('/api/genres/:_id', (req, res) => {
+app.delete('/api/courses/:_id', (req, res) => {
 	var id = req.params._id;
-	var genre = req.body;
-	Genre.updateGenre(id, genre, {}, (err, genre) => {
+	Course.removeCourse(id, (err, course) => {
 		if(err){
 			throw err;
 		}
-		res.json(genre);
+		res.json(course);
 	});
 });
-
 
 
 app.listen(port);	
