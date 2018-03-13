@@ -65,12 +65,18 @@ $stateProvider
         .state('instructor.createcourse', {
             url: '/createcourse',
             templateUrl: 'views/instructor/icreate.html',
-            controller: "ICreateController"
+            controller: "ICreateController",
+            params: {
+                course: null
+            }
         })
         .state('instructor.viewcourse', {
             url: '/viewcourse',
             templateUrl: 'views/coursepage1.html',
-            controller: "CourseController"
+            controller: "CourseController",
+            params: {
+                course: null
+            }
         })
 
         .state('nerd', {

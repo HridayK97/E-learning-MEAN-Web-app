@@ -9,6 +9,10 @@ angular.module('AppUserService', ['ngCookies']).factory('AppUserService', ['$htt
                 currentUser.username=user.username;
                 currentUser.type=user.type;
                 currentUser.courses=user.courses;
+                currentUser.email=user.email;
+                currentUser.clg=user.clg;
+                currentUser.phone=user.phone;
+                currentUser.name=user.name;
                 console.log("set current user in service: ")
                 console.log(currentUser);
                 $cookies.putObject('currentUser', currentUser);

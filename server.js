@@ -63,6 +63,20 @@ app.get('/api/users/:username', (req, res) => {
 	});
 });
 
+//create user,register
+app.post('/api/users', (req, res) => {
+	var user = req.body;
+	User.addUser(user, (err, user) => {
+		if(err){
+			//throw err;
+			console.log(err.errors);
+		}
+		res.json(user);
+	});
+});
+
+
+
 //get all courses
 app.get('/api/courses', (req, res) => {
 	console.log(util.inspect(req.params, {showHidden: false, depth: null}));
@@ -90,6 +104,18 @@ app.get('/api/courses/:id', (req, res) => {
 	});
 });
 
+//Create Course
+app.post('/api/courses', (req, res) => {
+	var course = req.body;
+	Course.addCourse(course, (err, course) => {
+		if(err){
+			//throw err;
+			console.log(err.errors);
+		}
+		res.json(course);
+	});
+});
+
 //add course to student user ,update user
 app.put('/api/users/:_id', (req, res) => {
 	var id = req.params._id;
@@ -101,6 +127,19 @@ app.put('/api/users/:_id', (req, res) => {
 		res.json(user);
 	});
 });
+
+//update course
+app.put('/api/courses/:_id', (req, res) => {
+	var id = req.params._id;
+	var course = req.body;
+	Course.updateCourse(id, course, {}, (err, course) => {
+		if(err){
+			throw err;
+		}
+		res.json(course);
+	});
+});
+
 
 
 

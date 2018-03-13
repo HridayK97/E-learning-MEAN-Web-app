@@ -16,8 +16,25 @@ const userSchema = mongoose.Schema({
 	},
 	courses:{
 		type: Array,
+		required: false
+	},
+	email:{
+		type: String,
+		required: true
+	},
+	phone:{
+		type: Number,
+		required: true
+	},
+	clg:{
+		type: String,
+		required: false
+	},
+	name:{
+		type: String,
 		required: true
 	}
+
 });
 
 const User = module.exports = mongoose.model('User', userSchema);
@@ -47,10 +64,20 @@ module.exports.updateUser = (id, user, options, callback) => {
 		username: user.username,
 		password: user.password,
 		type: user.type,
-		courses: user.courses
+		courses: user.courses,
+		email: user.email,
+		phone: user.phone,
+		clg: user.clg,
+		name: user.name
 	}
 	User.findOneAndUpdate(query, user, options, callback);
 }
+
+module.exports.addUser = (user, callback) => {
+	console.log(user);
+	User.create(user, callback);
+}
+
 
 module.exports.updateGenre = (id, genre, options, callback) => {
 	var query = {_id: id};

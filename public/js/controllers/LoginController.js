@@ -92,6 +92,10 @@ $scope.user={}
                 currentUser.password=payload.data.password;
                 currentUser.type=payload.data.type;
                 currentUser.courses=payload.data.courses;
+                currentUser.email=payload.data.email;
+                currentUser.phone=payload.data.phone;
+                currentUser.clg=payload.data.clg;
+                currentUser.name=payload.data.name;
 
                 LoginService.setCurrentUser(currentUser);
 

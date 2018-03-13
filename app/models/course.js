@@ -20,17 +20,13 @@ const courseSchema = mongoose.Schema({
 	},
 	instructor_id:{
 		type: String,
-		required: true
+		required: false
 	},
 	image:{
 		type: String,
 		required: true
 	},
 	difficulty:{
-		type: String,
-		required: true
-	},
-	category:{
 		type: String,
 		required: true
 	},
@@ -56,6 +52,28 @@ module.exports.getCourseById = (id,callback) => {
 	
 	//var query = {'username': username};
 	Course.findOne({_id:id},callback);
+}
+
+module.exports.addCourse = (course, callback) => {
+	console.log(course);
+	Course.create(course, callback);
+}
+
+module.exports.updateCourse = (id, course, options, callback) => {
+	var query = {_id: id};
+	console.log(id);
+	console.log(course);
+	/*var update = {
+		username: user.username,
+		password: user.password,
+		type: user.type,
+		courses: user.courses,
+		email: user.email,
+		phone: user.phone,
+		clg: user.clg,
+		name: user.name
+	}*/
+	Course.findOneAndUpdate(query, course, options, callback);
 }
 
 module.exports.updateGenre = (id, genre, options, callback) => {

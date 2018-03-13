@@ -1,6 +1,39 @@
 <md-content class="md-padding" layout="row" layout-wrap>
-	   <div class='md-padding' layout="row" layout-align="space-around none" layout-wrap>
-	    <md-card  flex="30" >
+	   <div class='md-padding' flex="100" layout="row" layout-align="space-around none" layout-wrap>
+	    
+	   	<md-card ng-repeat="course in mycourses" flex="30">
+	      <img ng-src="{{course.image}}">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">{{course.name}}</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>{{course.card_description}}
+	        </p>
+	        <p>Instructor: {{course.instructor_name}}
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="viewcourse(course)" class="md-raised md-primary">Open</md-button>
+	        <md-button ng-click="editcourse(course)" class="md-raised">Edit</md-button>
+	        <md-button class="md-raised md-warn" ng-click="showConfirm($event)">Remove Course</md-button>
+	      </md-card-actions>
+	    </md-card>
+
+
+
+
+
+
+
+
+
+
+
+
+	    <!--<md-card  flex="30" >
 	      <img ng-src="../img/courseimg/python.jpg">
 	      <md-card-title>
 	        <md-card-title-text>
@@ -39,6 +72,8 @@
 	        <md-button class="md-raised md-warn" ng-click="showConfirm($event)">Remove Course</md-button>
 	      </md-card-actions>
 	    </md-card>
+
+	-->
 	  </div>
 
 </md-content>
