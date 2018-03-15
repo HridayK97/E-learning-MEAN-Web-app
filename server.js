@@ -63,6 +63,7 @@ app.get('/api/users/:username', (req, res) => {
 	});
 });
 
+
 //create user,register
 app.post('/api/users', (req, res) => {
 	var user = req.body;
