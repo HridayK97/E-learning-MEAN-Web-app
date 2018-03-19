@@ -99,6 +99,7 @@ var last = {
 
   $scope.deletecourse = function(selected){
     var id=selected._id;
+    var name=selected.name;
     CourseService.removeCourse(id);
     console.log("check if deleted");
 
@@ -122,6 +123,9 @@ var last = {
               var index = allUsers[i].courses.indexOf(id);
               if (index !== -1) {
                   allUsers[i].courses.splice(index, 1);
+                  if(allUsers[i].type=="student"){
+                    allUsers[i].notif.push(name);
+                  }
                   AppUserService.updateUser(allUsers[i]);
 
               }

@@ -13,6 +13,7 @@ angular.module('LoginService', ['ngCookies']).factory('LoginService', ['$http','
                 currentUser.clg=user.clg;
                 currentUser.phone=user.phone;
                 currentUser.name=user.name;
+                currentUser.notif=user.notif;
                 console.log("set current user in service: ")
                 console.log(currentUser);
                 $cookies.putObject('currentUser', currentUser);

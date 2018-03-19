@@ -96,6 +96,7 @@ $scope.user={}
                 currentUser.phone=payload.data.phone;
                 currentUser.clg=payload.data.clg;
                 currentUser.name=payload.data.name;
+                currentUser.notif=payload.data.notif;
 
                 LoginService.setCurrentUser(currentUser);
 

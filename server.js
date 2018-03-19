@@ -37,7 +37,7 @@ require('./app/routes')(app); // pass our application into our routes
 
 //get users
 app.get('/api/users', (req, res) => {
-	console.log(util.inspect(req.params, {showHidden: false, depth: null}));
+	//console.log(util.inspect(req.params, {showHidden: false, depth: null}));
 	User.getUsers((err, user) => {
 		if(err){
 			throw err;
@@ -47,17 +47,31 @@ app.get('/api/users', (req, res) => {
 });
 
 
+//get all instructors
+
+app.get('/api/instructors', (req, res) => {
+	//console.log(util.inspect(req.params, {showHidden: false, depth: null}));
+	User.getInstructors((err, user) => {
+		if(err){
+			throw err;
+		}
+		res.json(user);
+	});
+});
+
+
+
 //get user according to id for login
 app.get('/api/users/:username', (req, res) => {
 	var username = req.params.username;
-	console.log(username);
+	//console.log(username);
 	//var genre = req.body;
 	User.getUserByUsername(username, (err, user) => {
 		if(err){
 			throw err;
 		}
 		//console.log(util.inspect(myObject, {showHidden: false, depth: null}))
-		console.log(user);
+		//console.log(user);
 		res.json(user);
 
 	});
@@ -79,8 +93,8 @@ app.post('/api/users', (req, res) => {
 
 
 //get all courses
-app.get('/api/courses', (req, res) => {
-	console.log(util.inspect(req.params, {showHidden: false, depth: null}));
+app.get('/api/courses/', (req, res) => {
+	//console.log(util.inspect(req.params, {showHidden: false, depth: null}));
 	Course.getCourses((err, user) => {
 		if(err){
 			throw err;
@@ -92,7 +106,7 @@ app.get('/api/courses', (req, res) => {
 //get course by id
 app.get('/api/courses/:id', (req, res) => {
 	var id = req.params.id;
-	console.log(id);
+	//console.log(id);
 	//var genre = req.body;
 	Course.getCourseById(id, (err, course) => {
 		if(err){
@@ -102,6 +116,21 @@ app.get('/api/courses/:id', (req, res) => {
 		console.log(course);
 		res.json(course);
 
+	});
+});
+
+//search courses
+app.get('/api/search/', (req, res) => {
+
+	var category=req.query.category;
+	var searchParams=req.query;
+	console.log(searchParams);
+	//console.log(util.inspect(req.params, {showHidden: false, depth: null}));
+	Course.searchCourses(searchParams, (err, course) => {
+		if(err){
+			throw err;
+		}
+		res.json(course);
 	});
 });
 

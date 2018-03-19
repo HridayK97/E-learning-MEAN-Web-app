@@ -27,10 +27,80 @@
     </h2>
   </div>
 
-  <md-input-container md-no-float class="md-accent" flex="50" style="padding-top:30px;margin-left:50px">
+  <md-input-container ng-keypress="searchEntered($event)" md-no-float class="md-accent" flex="30" style="padding-top:30px;margin-left:50px">
                <md-icon md-font-icon="search" style="padding-top:25px;font-size:36px">search</md-icon>
-              <input ng-model="searchInput" placeholder="Search" style="color:white;">
+              <input ng-model="searchParams.input" placeholder="Search" style="color:white;">
   </md-input-container>
+
+
+   <md-button aria-label="search options menu" class="md-raised" ng-click="openOptions()">Options
+      </md-button>
+
+     <md-input-container ng-show="showOptions" class="md-icon-float md-block">
+            <label>Category</label>
+            <md-icon md-font-icon="public">subject</md-icon>
+            <md-select name="category" ng-model="searchParams.category">
+              <md-option ng-repeat="category in categories" value="{{category}}">
+                {{category}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+
+
+      <md-input-container ng-show="showOptions" class="md-icon-float md-block">
+            <label>Instructor</label>
+            <md-icon md-font-icon="public">account_circle</md-icon>
+            <md-select name="category" ng-model="searchParams.instructor_name">
+              <md-option ng-repeat="instructor in allInstructors" value="{{instructor}}">
+                {{instructor}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+  <!--<md-button class="md-raised" aria-label="options">
+          <span>Options</span>
+  </md-button>-->
+
+
+   <!--
+        <md-menu>
+          <md-button class="md-raised" aria-label="options">
+              <span>Options</span>
+          </md-button>
+          <md-menu-content width="6">
+            <md-menu-item ng-repeat="category in categories">
+              <md-button> <span md-menu-align-target>Option</span> {{category}} </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+
+      -->
+      <!--
+       <md-menu md-offset="" md-position-mode="target-right target">
+      <md-button aria-label="search options menu" class="md-raised" ng-click="openOptions($mdMenu, $event)">Options
+      </md-button>
+      <md-menu-content width="6">
+        <md-menu-item>
+         
+            <md-select  class="md-no-underline" name="category" required ng-model="searchParams.category">
+              <md-option ng-repeat="category in categories" value="{{category}}">
+                {{category}}
+              </md-option>
+            </md-select>
+        
+        </md-menu-item>
+        <md-menu-item>
+          <md-button disabled="disabled" ng-click="ctrl.checkVoicemail()">
+            
+            Instructor
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
+  -->
+
+
   <span flex></span>
   <md-button ui-sref="login" class="md-raised md-accent" aria-label="Messages">
           <span>Logout</span>

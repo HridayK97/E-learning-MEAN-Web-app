@@ -33,6 +33,10 @@ const userSchema = mongoose.Schema({
 	name:{
 		type: String,
 		required: true
+	},
+	notif:{
+		type: Array,
+		required: false
 	}
 
 });
@@ -42,6 +46,10 @@ const User = module.exports = mongoose.model('User', userSchema);
 // Get Books
 module.exports.getUsers = (callback, limit) => {
 	User.find(callback).limit(limit);
+}
+
+module.exports.getInstructors = (callback, limit) => {
+	User.find({type:"instructor"},callback).limit(limit);
 }
 
 // Get Book

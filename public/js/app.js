@@ -1,6 +1,6 @@
-var myApp=angular.module('sampleApp', ['ui.router','MainCtrl','LoginController','RegisterController','MyCoursesController','MyProfileController'
+var myApp=angular.module('sampleApp', ['ui.router','MainController','LoginController','RegisterController','MyCoursesController','MyProfileController'
 	,'ExploreController','CourseController',
-	'IMainController','IMyCoursesController','IMyProfileController','ICreateController',
+	'IMainController','IMyCoursesController','IMyProfileController','ICreateController','SearchController',
 
 	'NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService','ngMaterial','youtube-embed','ngMessages','ngCookies']);
  
@@ -46,6 +46,15 @@ $stateProvider
                 course: null
             }
         })
+        .state('student.search', {
+            url: '/search',
+            templateUrl: 'views/search.html',
+            controller: "SearchController",
+            cache: false,
+            params: {
+                searchParams: null
+            }
+        })
 
         .state('instructor', {
             url: '/instructor',
@@ -78,6 +87,7 @@ $stateProvider
                 course: null
             }
         })
+
 
         .state('nerd', {
             url: '/nerd',

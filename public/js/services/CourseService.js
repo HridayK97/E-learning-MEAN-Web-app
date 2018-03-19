@@ -41,6 +41,25 @@ angular.module('CourseService', []).factory('CourseService', ['$http', function(
 		   });
 	}
 
+	var searchCourses = function(searchParams){
+		
+		console.log(searchParams);
+
+		return $http({
+		      method: 'GET',
+		      url: '/api/search/',
+		      params: searchParams
+		   }).then(function (response){
+		   		//console.log( course);
+				return response;
+
+		   },function (error){
+		   	console.log('can not get data.');
+		   		return;
+
+		   });
+	}
+
 	var addCourse = function(courseData){
    
     return $http({
@@ -114,6 +133,7 @@ angular.module('CourseService', []).factory('CourseService', ['$http', function(
 	return {
 	getCourses:getCourses,
     getCourse:getCourse,
+    searchCourses:searchCourses,
     addCourse:addCourse,
     updateCourse:updateCourse,
     removeCourse:removeCourse

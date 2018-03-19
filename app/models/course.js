@@ -34,6 +34,10 @@ const courseSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
+	category:{
+		type: String,
+		required: true
+	},
 });
 
 const Course = module.exports = mongoose.model('Course', courseSchema);
@@ -42,6 +46,27 @@ const Course = module.exports = mongoose.model('Course', courseSchema);
 module.exports.getCourses = (callback, limit) => {
 	Course.find(callback).limit(limit);
 }
+
+module.exports.searchCourses = (searchParams,callback, limit) => {
+	var query={};
+	if(searchParams.input!=null)
+	{
+		query.$text={$search: searchParams.input};
+	}
+
+	if(searchParams.category!=null)
+	{
+		query.category=searchParams.category;
+	}
+
+	if(searchParams.instructor_name!=null)
+	{
+		query.instructor_name=searchParams.instructor_name;
+	}
+
+	Course.find(query,callback).limit(limit);
+}
+
 
 // Get Book
 module.exports.getBookById = (id, callback) => {

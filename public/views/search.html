@@ -1,0 +1,51 @@
+<md-content md-padding>
+
+
+
+
+
+<div style="margin-top:10px" layout="row" layout-align="center">
+	<span></span>
+	<md-toolbar flex="50" layout="row" layout-align="center none" class="md-theme-light">
+    <h2 >
+      <span>Search Results</span>
+    </h2>
+  </md-toolbar>
+  <span></span>
+</div>
+<!--ng-repeat="n in [1, 2, 3]"-->
+
+<div class='md-padding' layout="row" layout-align="space-around none" layout-wrap>
+  
+
+	    <md-card ng-repeat="course in allCourses" flex="30">
+	      <img ng-src="{{course.image}}">
+	      <md-card-title>
+	        <md-card-title-text>
+	          <span class="md-headline">{{course.name}}</span>
+	        </md-card-title-text>
+	      </md-card-title>
+	      <md-card-content>
+	        <p>{{course.card_description}}
+	        </p>
+	        <p>Instructor: {{course.instructor_name}}
+	        </p>
+	      </md-card-content>
+
+	      <md-card-actions layout="row" layout-align="end center" class="md-padding">
+	        <md-button ng-click="showSimpleToast(course._id)" class="md-raised">Add Course</md-button>
+	      </md-card-actions>
+	    </md-card> 
+
+
+	    
+	  </div>
+
+
+	   
+
+
+
+
+
+</md-content>

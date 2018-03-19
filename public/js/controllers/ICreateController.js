@@ -5,6 +5,8 @@ angular.module('ICreateController', ['CourseService','AppUserService']).controll
 
 $scope.isUpdate=false;
 
+$scope.categories = ['Math','Science','Computer Science','Art'];
+
 if($stateParams.course!=null){
     $scope.course=$stateParams.course;
     $scope.isUpdate=true;
@@ -70,6 +72,10 @@ var last = {
 
 $scope.submitcourse= function(){
 
+
+
+  if($scope.course.category!=null) //doing this because of some weird bug with category select element,form is submitting even if i dont select anything.
+  {
   if($scope.isUpdate==true)
   {
       CourseService.updateCourse($scope.course);
@@ -99,6 +105,7 @@ $scope.submitcourse= function(){
           AppUserService.updateUser(currentUser);
           AppUserService.setCurrentUser(currentUser);
           $state.reload('instructor.mycourses');
+          //$state.go('instructor.mycourses');
           $scope.showSimpleToast();
           //$state.go('instructor.mycourses');   
         }
@@ -110,7 +117,7 @@ $scope.submitcourse= function(){
     });
 
 }
-
+}
 
 
 		//$scope.showSimpleToast();
